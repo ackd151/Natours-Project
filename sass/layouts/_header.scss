@@ -1,0 +1,35 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top; /* which part stays when sizing/cropping */
+  position: relative;
+
+  /* clip polygon 4 x,y points: top-left, top-right, bottom-right, bottom-left */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* %, px, vh... */
+
+  &__logo {
+    height: 3.5rem;
+
+    &-box {
+      position: absolute;
+      top: 4rem; /* starting from parent element - make parent relative position*/
+      left: 4rem;
+    }
+  }
+
+  /* Center using absolute pos:: top50 left 50 -> then translate -50 -50 
+to shift to center instead of top left corner */
+  &__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
